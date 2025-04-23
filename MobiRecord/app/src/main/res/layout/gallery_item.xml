@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_3">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_130"
+            android:scaleType="centerCrop" />
+
+
+
+        <RelativeLayout
+            android:id="@+id/select_rl"
+            android:layout_width="@dimen/dimen_25"
+            android:layout_height="@dimen/dimen_25"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/black">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/mediaCountTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_centerInParent="true"
+                android:padding="3dp"
+                android:gravity="center"
+                android:background="@color/transparent"
+                android:textColor="#fff"
+                />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

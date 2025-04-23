@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="SpinnerDatePickerDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:datePickerStyle">@style/SpinnerDatePickerStyle</item>
+        <!-- Ensure primary text color is applied -->
+        <item name="android:textColorPrimary">#000000</item>
+        <item name="colorPrimaryVariant">@color/violet_color</item>
+        <item name="colorOnPrimary">@color/violet_color</item>
+    </style>
+
+    <!-- Custom spinner style for DatePicker -->
+    <style name="SpinnerDatePickerStyle" parent="android:Widget.Material.DatePicker">
+        <item name="android:datePickerMode">spinner</item>
+        <!-- Customize other attributes if needed -->
+    </style>
+
+    <style name="title_textview_style">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/font_18</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="text_font_style">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/font_20</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+     </style>
+    <style name="text_font_style_16">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/font_16</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+     </style>
+    <style name="text_header_style_16">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/font_16</item>
+        <item name="android:paddingBottom">@dimen/dimen_10</item>
+        <item name="android:textStyle">normal</item>
+      </style>
+    <style name="text_header_style_16_bold">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/font_16</item>
+        <item name="android:paddingBottom">@dimen/dimen_10</item>
+        <item name="android:textStyle">bold</item>
+      </style>
+
+    <style name="text_style_Violet_16">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/violet_color</item>
+        <item name="android:textSize">@dimen/font_16</item>
+        <item name="android:paddingBottom">@dimen/dimen_10</item>
+        <item name="android:textStyle">normal</item>
+      </style>
+    <style name="text_edittext_style_16">
+        <item name="android:layout_height">@dimen/dimen_50</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/font_16</item>
+        <item name="android:hint">@string/enter_here</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_10</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:padding">@dimen/dimen_5</item>
+        <item name="android:background">@drawable/edit_text_bg</item>
+      </style>
+    <style name="text_dropdown_style_16">
+        <item name="android:layout_height">@dimen/dimen_50</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/font_16</item>
+          <item name="android:drawableEnd">@drawable/drop_down_ic</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_10</item>
+        <item name="android:textStyle">normal</item>
+         <item name="android:padding">@dimen/dimen_13</item>
+        <item name="android:background">@drawable/edit_text_bg</item>
+      </style>
+    <style name="calendar_style_text_view">
+        <item name="android:layout_height">@dimen/dimen_50</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/font_16</item>
+        <item name="singleLine">true
+        </item>
+        <item name="android:drawableEnd">@drawable/calendar_ic</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_10</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:padding">@dimen/dimen_13</item>
+        <item name="android:background">@drawable/edit_text_bg</item>
+    </style>
+
+    <style name="password_style_text_view">
+        <item name="android:layout_height">@dimen/dimen_50</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:hint">@string/enter_here</item>
+        <item name="android:textSize">@dimen/font_16</item>
+        <item name="singleLine">true
+        </item>
+          <item name="android:drawableEnd">@drawable/password_toggle</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_10</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:padding">@dimen/dimen_13</item>
+         <item name="android:background">@drawable/edit_text_bg</item>
+      </style>
+    <style name="scroll_edit_text">
+        <item name="android:layout_height">@dimen/dimen_100</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/font_16</item>
+         <item name="android:layout_marginBottom">@dimen/dimen_10</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:hint">@string/enter_here</item>
+        <item name="android:padding">@dimen/dimen_5</item>
+            <item name="android:background">@drawable/edit_text_bg</item>
+        <item name="android:scrollbarStyle">insideInset</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:inputType">textNoSuggestions|textCapWords|textCapSentences</item>
+        <item name="singleLine">false</item>
+        <item name="maxLines">10</item>
+        <item name="android:gravity">start</item>
+
+    </style>
+
+    <style name="card_view_style">
+    <item name="android:padding">@dimen/dimen_20</item>
+    <item name="android:layout_margin">@dimen/dimen_5</item>
+    <item name="cardCornerRadius">@dimen/dimen_10</item>
+    <item name="strokeWidth">@dimen/dimen_0</item>
+    <item name="android:layout_gravity">center</item>
+    <item name="android:clickable">true</item>
+        <item name="cardBackgroundColor">@color/light_gray</item>
+      </style>
+    <style name="CustomCardViewStyle" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/material_card_view_radius</item>
+    </style>
+    <style name="material_card_view_radius" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">@dimen/dimen_15</item>
+        <item name="cornerSizeTopLeft">@dimen/dimen_15</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+    <style name="popup_window_animation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom_alert</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom_alert</item>
+    </style>
+    <style name="button_style">
+         <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dimen_50</item>
+        <item name="android:layout_marginTop">@dimen/dimen_14</item>
+        <item name="android:textAllCaps">false</item>
+         <item name="android:padding">@dimen/dimen_10</item>
+        <item name="android:textSize">@dimen/font_16</item>
+         <item name="android:textColor">@color/white</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">@drawable/gray_button_bg</item>
+          <item name="android:singleLine">true</item>
+        <item name="android:maxLines">1</item>
+         <item name="android:layout_marginBottom">@dimen/dimen_20</item>
+         <item name="android:gravity">center</item>
+         <item name="android:enabled">false</item>
+    </style>
+    <style name="ModalBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/modal_background</item>
+
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+
+    </style>
+    <style name="violet_color_title_txt_style_without_bold">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/dimen_50</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+         <item name="android:textColor">@color/violet_color</item>
+        <item name="android:textSize">@dimen/font_16</item>
+        <item name="android:padding">@dimen/dimen_10</item>
+     </style>
+    <style name="line_view_style">
+        <item name="android:background">@color/gray_color</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dimen_0_5</item>
+        <item name="alpha">0.2</item>
+    </style>
+
+
+</resources>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.mobirecord.ui.viewmodel.AddDetailsViewmodel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".ui.addmobiles.AddMobileDetailsActivity">
+
+
+            <include
+                android:id="@+id/commonHeader"
+                layout="@layout/common_header_layout" />
+            <androidx.core.widget.NestedScrollView
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/commonHeader"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_0">
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_10"
+                    android:orientation="vertical">
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/text_header_style_16"
+                        android:text="@string/mobile_model"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:inputType="textNoSuggestions|textCapWords"
+                        style="@style/text_edittext_style_16"
+                        android:text="@={viewModel.mobileModel}"
+                        android:id="@+id/mobileModelEt"/>
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/text_header_style_16"
+                        android:text="@string/imei"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:inputType="number"
+                        style="@style/text_edittext_style_16"
+                        android:maxLength="16"
+                        android:text="@={viewModel.imei}"
+                        android:id="@+id/imeiEt"/>
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/text_header_style_16"
+                        android:text="@string/buyer_price"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:inputType="number"
+                        style="@style/text_edittext_style_16"
+                        app:setIntText="@={viewModel.buyerPrice}"
+                        android:id="@+id/buyerPriceEt"/>
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/text_header_style_16"
+                        android:text="@string/seller_price"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:inputType="number"
+                        style="@style/text_edittext_style_16"
+                        app:setIntText="@={viewModel.sellerPrice}"
+                        android:id="@+id/sellerPriceEt"/>
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/text_header_style_16"
+                        android:text="@string/profit"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:inputType="number"
+                        style="@style/text_edittext_style_16"
+                        app:setIntText="@={viewModel.profit}"
+                        android:id="@+id/profitEt"/>
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/text_header_style_16"
+                        android:text="@string/status"/>
+                    <com.google.android.material.textview.MaterialTextView
+                           style="@style/text_dropdown_style_16"
+                        android:text="@={viewModel.status}"
+                        android:id="@+id/statusEt"/>
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/text_header_style_16"
+                        android:text="@string/seller_name"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:inputType="textNoSuggestions|textCapWords"
+                          style="@style/text_edittext_style_16"
+                        android:text="@={viewModel.sellerName}"
+                        android:id="@+id/sellerNameEt"/>
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/text_header_style_16"
+                        android:text="@string/seller_phone_number"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/text_edittext_style_16"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:text="@={viewModel.sellerPhoneNumber}"
+                        android:id="@+id/sellerPhoneNumEt"/>
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/text_header_style_16"
+                        android:text="@string/seller_aadhar"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:inputType="textNoSuggestions|textCapWords"
+                        style="@style/text_edittext_style_16"
+                        android:text="@={viewModel.sellerAadhar}"
+                        android:id="@+id/sellerAadharEt"/>
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/text_header_style_16"
+                        android:text="@string/seller_date"/>
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/calendar_style_text_view"
+                        android:inputType="date"
+                        android:text="@{viewModel.sellerDate}"
+                        android:id="@+id/sellerDate"/>
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/text_header_style_16"
+                        android:text="@string/buyer_name"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:inputType="textNoSuggestions|textCapWords"
+                        style="@style/text_edittext_style_16"
+                        android:text="@={viewModel.buyerName}"
+                        android:id="@+id/buyerNameEt"/>
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/text_header_style_16"
+                        android:text="@string/buyer_phone_number"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/text_edittext_style_16"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:text="@={viewModel.buyerPhoneNumber}"
+                        android:id="@+id/buyerPhoneNumEt"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:visibility="gone"
+                        style="@style/text_header_style_16"
+                        android:text="@string/customer_address"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/scroll_edit_text"
+                        android:visibility="gone"
+                        android:inputType="textMultiLine|textCapSentences|textCapWords"
+                        android:text="@={viewModel.customerAddress}"
+                        android:id="@+id/customerAddressEt"/>
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/text_header_style_16"
+                        android:text="@string/buying_date"/>
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/calendar_style_text_view"
+                        android:inputType="date"
+                        android:text="@{viewModel.buyingDate}"
+                        android:id="@+id/buyingDate"/>
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/text_header_style_16"
+                        android:text="@string/mobile_images"/>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                      <com.google.android.material.imageview.ShapeableImageView
+                          android:id="@+id/uploadImageIcon"
+                          app:layout_constraintTop_toTopOf="parent"
+                          app:layout_constraintStart_toStartOf="parent"
+                          android:layout_width="@dimen/dimen_100"
+                          android:layout_height="@dimen/dimen_100"
+                          android:src="@drawable/ic_plus"
+                          android:layout_marginBottom="@dimen/dimen_10"/>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:itemCount="2"
+                            tools:listitem="@layout/image_list_item"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:id="@+id/multiMediaRv"/>
+
+                        
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/uploadTv"
+                        android:onClick="@{()->viewModel.validations()}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/button_style"
+                        setBackground="@{!viewModel.mobileModel.empty &amp;&amp;!viewModel.imei.empty&amp;&amp;!viewModel.status.empty&amp;&amp;!viewModel.sellerName.empty&amp;&amp;!viewModel.sellerPhoneNumber.empty&amp;&amp;!viewModel.sellerDate.empty&amp;&amp;viewModel.multiImagesList.size() > 0}"
+                        android:text="@string/upload"/>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.core.widget.NestedScrollView>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

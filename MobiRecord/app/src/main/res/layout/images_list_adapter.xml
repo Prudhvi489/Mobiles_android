@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <!-- item.xml -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_5"
+        android:layout_marginVertical="@dimen/dimen_5">
+
+        <ImageView
+            android:id="@+id/itemV"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/countBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="8dp"
+            android:background="@drawable/selection_count"
+            android:padding="4dp"
+            android:textColor="@android:color/white"
+            android:textSize="54sp"
+            android:gravity="center"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+
+</layout>

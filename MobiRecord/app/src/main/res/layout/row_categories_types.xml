@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mobirecord.ui.addmobiles.model.ListDataModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_40"
+             android:layout_marginTop="@dimen/dimen_5"
+            android:layout_marginRight="@dimen/dimen_15"
+            android:layout_marginBottom="@dimen/dimen_5"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+
+
+
+            <TextView
+                android:id="@+id/rowCountryNameTv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/dimen_10"
+                android:layout_weight="0.65"
+                android:gravity="start|center"
+                style="@style/text_font_style_16"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_12"
+                android:text="@{viewModel.name}" />
+
+            <TextView
+                android:id="@+id/rowCountryCodeTv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.2"
+                style="@style/text_font_style_16"
+                android:gravity="center|start"
+                android:visibility="gone"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_12"
+                tools:text="123" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray_color"
+            android:orientation="horizontal" />
+    </LinearLayout>
+</layout>

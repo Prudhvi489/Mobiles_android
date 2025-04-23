@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="red_color">#D02626</color>
+    <color name="green_color">#2FD03F</color>
+    <color name="dark_shade_of_gray">#242424</color>
+    <color name="gray_color">#BAB4B3</color>
+    <color name="light_gray">#d8d8d8</color>
+<!--    <color name="violet_color">#8f00ff</color>-->
+    <color name="violet_color">#215382</color>
+    <color name="light_violet">#994D83B5</color>
+    <color name="gray_edit_text">#9897A9</color>
+    <color name="shimmer_placeholder">#dddddd</color>
+
+
+</resources>

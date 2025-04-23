@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:id="@+id/container"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/backgroundLl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_10"
+            android:layout_marginRight="@dimen/dimen_10"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:background="@drawable/rectangle_error"
+            android:elevation="@dimen/dimen_5"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/dimen_10"
+            android:paddingTop="@dimen/dimen_8"
+            android:paddingEnd="@dimen/font_30"
+            android:paddingBottom="@dimen/dimen_8">
+
+            <ImageView
+                android:id="@+id/errorIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="visible"
+                tools:src="@drawable/ic_error" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/messageTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:paddingStart="@dimen/dimen_10"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                tools:text="asncsjvbd" />
+
+        </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

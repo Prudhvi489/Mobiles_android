@@ -1,0 +1,85 @@
+<resources>
+    <string name="app_name">MobiRecord</string>
+    <string name="the_camera_and_microphone_permissions_is_required_to_take_photo">The Camera and Microphone permissions is required to take photo.</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="cancel">Cancel</string>
+    <string name="network_disconnected">Network Disconnected</string>
+    <string name="please_check_the_network_and_retry">Please check the network and Retry</string>
+    <string name="network_slow">Slow Network Connection</string>
+    <string name="slow_connection_message">Your internet connection is slow. Please try again later.</string>
+    <string name="retry">Retry</string>
+    <string name="session_expired_msg">Sorry! Someone has logged in with your account. Please check and come back</string>
+    <string name="add_mobiles">Add Mobile</string>
+    <string name="seller_name">Seller Name</string>
+    <string name="enter_here">Enter here</string>
+    <string name="select">Select</string>
+    <string name="seller_phone_number">Seller Phone Number</string>
+    <string name="mobile_name">Mobile Name</string>
+    <string name="seller_date">Seller Date</string>
+    <string name="customer_address">Customer Address</string>
+    <string name="buying_date">Buying Date</string>
+    <string name="mobile_images">Mobile Images</string>
+    <string name="please_give_storage_permission">Please give storage permission</string>
+    <string name="ok">OK</string>
+    <string name="limited_access_message"><![CDATA[
+   <br>Your gallery is empty, or you haven\'t selected any images for limited access. \nPlease select images through App settings to continue.
+Please enable!</br></br>
+    <br><br><b>Permission -> Photos and Videos -> \"Allow all\"</b></br></br> or select images for limited access.]]></string>
+    <string name="no_photos">No Photos</string>
+    <string name="this_app_needs_storage_and_camera_permissions_to_function_properly_please_enable_them_in_settings">This app needs storage and camera permissions to function properly. Please enable them in settings.</string>
+    <string name="go_to_settings">Go to Settings</string>
+    <string name="permission_required">Permission Required</string>
+    <string name="your_limit_is_over">Your limit is over</string>
+    <string name="image_size_limit">Image exceeds 50 MB limit</string>
+    <string name="done">Done</string>
+    <string name="pick_image_intent_chooser_title">Select source</string>
+    <string name="are_you_sure_you_want_to_delete">Are you sure you want to delete?</string>
+    <string name="please_select_atleast_one_image">Please select atleast one image.</string>
+    <string name="next">Next</string>
+    <string name="your_selection_limit_exceed">Your selection limit has exceeded.</string>
+    <string name="upload">Upload</string>
+    <string name="customer_name_empty">Please provide the customer name</string>
+    <string name="valid_phone_number">Please provide the valid Phone Number</string>
+    <string name="invalid_imei">Please provide the 16 digit Imei Number</string>
+    <string name="valid_email">Please provide the valid email</string>
+    <string name="valid_password">Please provide the valid password</string>
+    <string name="valid_confirm_password">Please provide the valid confirm password</string>
+    <string name="passwords_not_matched">Passwords do not match</string>
+    <string name="valid_otp">Please enter 4 digits to verify the OTP</string>
+    <string name="mobile_record">Mobile Record</string>
+    <string name="mobile_details">Mobile Details</string>
+    <string name="add">Add</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="no_mobiles_found">No Mobiles Found</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="login">Login</string>
+    <string name="verify_otp">Verify Otp</string>
+    <string name="verify">Verify</string>
+    <string name="resend">Resend</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="verify_your_email">An OTP has been sent to your registered email for verification. Please enter it to proceed</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="are_you_sure_you_want_to_proceed">Are you sure you want to proceed?</string>
+    <string name="mobile_model">Mobile Model</string>
+    <string name="imei">imei</string>
+    <string name="buyer_price">Buyer Price</string>
+    <string name="seller_price">Seller Price</string>
+    <string name="profit">Profit</string>
+    <string name="status">status</string>
+    <string name="seller_aadhar">Seller Aadhar</string>
+    <string name="buyer_name">Buyer Name</string>
+    <string name="buyer_phone_number">Buyer Phone Number</string>
+    <string name="search">Search</string>
+    <string name="no_result_found">No Result Found</string>
+    <string name="available">available</string>
+    <string name="sold">sold</string>
+    <string name="pending">pending</string>
+    <string name="update">Update</string>
+    <string name="edit_mobile">Edit Mobile</string>
+
+
+</resources>

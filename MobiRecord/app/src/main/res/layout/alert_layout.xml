@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/edit_text_bg"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/dimen_20"
+        android:paddingTop="@dimen/dimen_20">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/titleTV"
+             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:gravity="center"
+            tools:text="Enter name" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/msgTV"
+             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            tools:text="Enter name" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/okBTN"
+             android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen_37"
+            android:layout_gravity="center"
+            android:textSize="@dimen/font_14"
+            android:layout_margin="@dimen/dimen_20"
+             android:enabled="true"
+            android:paddingHorizontal="@dimen/dimen_30"
+            android:text="@string/ok" />
+
+    </LinearLayout>
+</layout>
