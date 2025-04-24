@@ -68,11 +68,12 @@
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/text_header_style_16"
                         android:text="@string/profit"/>
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:inputType="number"
-                        style="@style/text_edittext_style_16"
-                        app:setIntText="@={viewModel.profit}"
-                        android:id="@+id/profitEt"/>
+                    <com.google.android.material.textview.MaterialTextView
+
+                         style="@style/text_edittext_style_16"
+                        android:gravity="center_vertical"
+                        android:text='@{String.valueOf(viewModel.profit)}'
+                           android:id="@+id/profitEt"/>
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/text_header_style_16"
                         android:text="@string/status"/>
@@ -182,8 +183,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         style="@style/button_style"
-                        setBackground="@{!viewModel.mobileModel.empty &amp;&amp;!viewModel.imei.empty&amp;&amp;!viewModel.status.empty&amp;&amp;!viewModel.sellerName.empty&amp;&amp;!viewModel.sellerPhoneNumber.empty&amp;&amp;!viewModel.sellerDate.empty&amp;&amp;viewModel.multiImagesList.size() > 0}"
-                        android:text="@string/upload"/>
+                        android:enabled="true"
+                        android:background="@drawable/violet_button_bg"
+                         android:text="@string/upload"/>
 
 
                 </androidx.appcompat.widget.LinearLayoutCompat>

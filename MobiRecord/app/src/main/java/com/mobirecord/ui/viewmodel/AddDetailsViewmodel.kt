@@ -49,7 +49,7 @@ class AddDetailsViewmodel @Inject constructor(
     var imei = MutableLiveData<String>()
     var buyerPrice = MutableLiveData<Int>()
     var sellerPrice = MutableLiveData<Int>()
-    var profit = MutableLiveData<Int>()
+    var profit = MediatorLiveData<Int>()
     var status = MutableLiveData<String>()
     var sellerAadhar = MutableLiveData<String>()
     var sellerDate = MutableLiveData<String>()
@@ -96,7 +96,7 @@ class AddDetailsViewmodel @Inject constructor(
     private fun initValues() {
         mobileModel.value = ""
         imei.value = ""
-         status.value = ""
+        status.value = ""
         sellerName.value = ""
         sellerPhoneNumber.value = ""
         buyerPhoneNumber.value = ""
@@ -107,19 +107,74 @@ class AddDetailsViewmodel @Inject constructor(
         buyingDate.value = ""
         selectedImagePath.value = ""
         searchString.value = ""
+        profit.addSource(buyerPrice) { calculateProfit() }
+        profit.addSource(sellerPrice) { calculateProfit() }
+    }
+
+    private fun calculateProfit() {
+        val buyer = buyerPrice.value ?: 0
+        val seller = sellerPrice.value ?: 0
+
+        if (buyer > 0 && seller > 0) {
+            profit.value = buyer - seller
+        } else {
+            profit.value = 0
+        }
     }
 
     fun validations() {
-        if(imei.value!!.length < 16){
-            validations.value = Pair(false, AppStrings.ValidationTypes.invalidImei)
+        when {
+            mobileModel.value.isNullOrEmpty() -> {
+                validations.value = Pair(false, AppStrings.ValidationTypes.emptyMobileModel)
+            }
 
-        }
-      else  if (!AppMethods.isValidPhoneNumber(sellerPhoneNumber.value.toString().trim())) {
-            validations.value = Pair(false, AppStrings.ValidationTypes.invalidImei)
-        } /*else if (!AppMethods.isValidPhoneNumber(buyerPhoneNumber.value.toString().trim())) {
-            validations.value = Pair(false, AppStrings.ValidationTypes.invalidMobileNumber)
-        }*/ else {
-            validations.value = Pair(true, AppStrings.ValidationTypes.success)
+            imei.value.isNullOrEmpty() -> {
+                validations.value = Pair(false, AppStrings.ValidationTypes.imeiEmpty)
+            }
+
+            !imei.value.isNullOrEmpty()&& imei.value!!.length < 16 -> {
+                validations.value = Pair(false, AppStrings.ValidationTypes.invalidImei)
+            }
+            sellerPrice.value == null -> {
+                validations.value = Pair(false, AppStrings.ValidationTypes.emptySellerPrice)
+            }
+
+            status.value.isNullOrEmpty() -> {
+                validations.value = Pair(false, AppStrings.ValidationTypes.emptyStatus)
+            }
+
+            sellerName.value.isNullOrEmpty() -> {
+                validations.value = Pair(false, AppStrings.ValidationTypes.emptySellerName)
+            }
+
+            sellerPhoneNumber.value.isNullOrEmpty() -> {
+                validations.value = Pair(false, AppStrings.ValidationTypes.emptySellerPhoneNumber)
+            }
+
+            !sellerPhoneNumber.value.isNullOrEmpty() && !AppMethods.isValidPhoneNumber(
+                sellerPhoneNumber.value.toString().trim()
+            ) -> {
+                validations.value = Pair(false, AppStrings.ValidationTypes.invalidMobileNumber)
+            }
+
+            sellerDate.value.isNullOrBlank() -> {
+                validations.value = Pair(false, AppStrings.ValidationTypes.emptySellerDate)
+            }
+
+            !buyerPhoneNumber.value.isNullOrEmpty() && !AppMethods.isValidPhoneNumber(
+                buyerPhoneNumber.value.toString().trim()
+            ) -> {
+                validations.value = Pair(false, AppStrings.ValidationTypes.invalidMobileNumber)
+
+            }
+
+            multiImagesList.size == 0 -> {
+                validations.value = Pair(false, AppStrings.ValidationTypes.emptyImages)
+            }
+
+            else -> {
+                validations.value = Pair(true, AppStrings.ValidationTypes.success)
+            }
         }
     }
 
@@ -166,15 +221,15 @@ class AddDetailsViewmodel @Inject constructor(
     }
 
     fun getAssets() {
-        var jsonObject= JSONObject()
-        jsonObject.put(AppStrings.InputData.page,page.value)
-        jsonObject.put(AppStrings.InputData.pageSize,pagesize.value)
-        jsonObject.put(AppStrings.InputData.Search,searchString.value)
+        var jsonObject = JSONObject()
+        jsonObject.put(AppStrings.InputData.page, page.value)
+        jsonObject.put(AppStrings.InputData.pageSize, pagesize.value)
+        jsonObject.put(AppStrings.InputData.Search, searchString.value)
 
         viewModelScope.launch {
             validateNetwork {
                 setIsLoading(true)
-                repo.getAssets(jsonObject,AppMethods.getToken(sm, false))
+                repo.getAssets(jsonObject, AppMethods.getToken(sm, false))
                     .isRequestCallSuspendSuccess(success = {
                         CLog.e("TAG", "login:it---->  " + it)
                         _getAssetsResponse.value = it
@@ -227,29 +282,33 @@ class AddDetailsViewmodel @Inject constructor(
             }
         }
     }
+
     fun generateUploadrls(activity: Activity) {
-        Log.e("TAG", "getPutUrls:awsList ${awsList.size}", )
-        val jsonObject=JSONObject()
-         jsonObject.put(AppStrings.InputData.fileNames,JSONArray(awsList))
+        Log.e("TAG", "getPutUrls:awsList ${awsList.size}")
+        val jsonObject = JSONObject()
+        jsonObject.put(AppStrings.InputData.fileNames, JSONArray(awsList))
         viewModelScope.launch {
             validateNetwork {
                 setIsLoading(true)
-                repo.generateUploadrls(AppMethods.getToken(sm,false),jsonObject).isRequestCallSuspendSuccess(activity=activity,success = {
-                    _getUploadUrlsResponse.value = it
-                },failure={
-                        body, errorType,message->
-                    println("failure-body-> " + body)
-                    println("failure-errorType-> " + errorType)
-                },unAuthorised = { body, errorType, message ->  // need to call api if we get unAuthorised error
-                    generateUploadrls(activity)
-                    Log.e(ContentValues.TAG, "unAuthorised: ${body},${errorType}")
-                    Log.e(ContentValues.TAG, "unAuthorised: message = ${message}")
-                })
+                repo.generateUploadrls(AppMethods.getToken(sm, false), jsonObject)
+                    .isRequestCallSuspendSuccess(
+                        activity = activity,
+                        success = {
+                            _getUploadUrlsResponse.value = it
+                        },
+                        failure = { body, errorType, message ->
+                            println("failure-body-> " + body)
+                            println("failure-errorType-> " + errorType)
+                        },
+                        unAuthorised = { body, errorType, message ->  // need to call api if we get unAuthorised error
+                            generateUploadrls(activity)
+                            Log.e(ContentValues.TAG, "unAuthorised: ${body},${errorType}")
+                            Log.e(ContentValues.TAG, "unAuthorised: message = ${message}")
+                        })
                 setIsLoading(false)
             }
         }
     }
-
 
 
 }

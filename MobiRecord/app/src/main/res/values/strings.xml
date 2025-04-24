@@ -40,6 +40,14 @@ Please enable!</br></br>
     <string name="your_selection_limit_exceed">Your selection limit has exceeded.</string>
     <string name="upload">Upload</string>
     <string name="customer_name_empty">Please provide the customer name</string>
+    <string name="mobile_model_empty">Please provide the mobile model</string>
+    <string name="status_empty">Please provide the status of the mobile</string>
+    <string name="seller_price_empty">Please provide the seller price of the mobile</string>
+    <string name="imei_empty">Please provide the imei number of the mobile</string>
+    <string name="seller_name_empty">Please provide the seller name</string>
+    <string name="seller_phone_number_empty">Please provide the seller phone number</string>
+    <string name="seller_date_empty">Please provide the seller date</string>
+    <string name="images_empty">Please provide at least one image</string>
     <string name="valid_phone_number">Please provide the valid Phone Number</string>
     <string name="invalid_imei">Please provide the 16 digit Imei Number</string>
     <string name="valid_email">Please provide the valid email</string>

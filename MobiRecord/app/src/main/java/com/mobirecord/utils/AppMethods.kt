@@ -1459,6 +1459,30 @@ import java.util.regex.Pattern
                 AppStrings.ValidationTypes.invalidImei->{
                    return activity.resources.getString(R.string.invalid_imei)
                 }
+                AppStrings.ValidationTypes.imeiEmpty->{
+                   return activity.resources.getString(R.string.imei_empty)
+                }
+                AppStrings.ValidationTypes.emptyMobileModel->{
+                   return activity.resources.getString(R.string.mobile_model_empty)
+                }
+                AppStrings.ValidationTypes.emptyStatus->{
+                   return activity.resources.getString(R.string.status_empty)
+                }
+                AppStrings.ValidationTypes.emptySellerPrice->{
+                   return activity.resources.getString(R.string.seller_price_empty)
+                }
+                AppStrings.ValidationTypes.emptySellerName->{
+                   return activity.resources.getString(R.string.seller_name_empty)
+                }
+                AppStrings.ValidationTypes.emptySellerPhoneNumber->{
+                   return activity.resources.getString(R.string.seller_phone_number_empty)
+                }
+                AppStrings.ValidationTypes.emptySellerDate->{
+                   return activity.resources.getString(R.string.seller_date_empty)
+                }
+                AppStrings.ValidationTypes.emptyImages->{
+                   return activity.resources.getString(R.string.images_empty)
+                }
                 AppStrings.ValidationTypes.invalidEmail->{
                     return activity.resources.getString(R.string.valid_email)
                 }

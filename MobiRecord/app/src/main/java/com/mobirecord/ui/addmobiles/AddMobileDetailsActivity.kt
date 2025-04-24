@@ -192,7 +192,7 @@ class AddMobileDetailsActivity :
         var jsonObject = JSONObject()
         jsonObject.put(AppStrings.InputData.mobileModel, viewModel.mobileModel.value)
         jsonObject.put(AppStrings.InputData.imei, viewModel.imei.value)
-        jsonObject.put(AppStrings.InputData.buyerPrice, viewModel.buyerPrice.value)
+        jsonObject.put(AppStrings.InputData.buyerPrice, viewModel.buyerPrice.value?:0)
         jsonObject.put(AppStrings.InputData.sellerPrice, viewModel.sellerPrice.value)
         jsonObject.put(AppStrings.InputData.profit, viewModel.profit.value)
         jsonObject.put(AppStrings.InputData.status, viewModel.status.value)
