@@ -1,6 +1,7 @@
 package com.mobirecord.ui.mobiledetails
 
 import android.app.Activity
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -20,7 +21,9 @@ class ImagePagerAdapter(var activity: Activity, val imageList: List<String>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var item = imageList[position]
-        AppMethods.loadImage(holder.binding.imageIV, item)
+        Log.e("TAG", "onBindViewHolder: image${item}", )
+
+        AppMethods.glideCoverImage(holder.itemView.context,item, holder.binding.imageIV)
 
     }
 

@@ -5,6 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
  import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.mobirecord.R
 import com.mobirecord.databinding.MobileListItemBinding
 import com.mobirecord.ui.mobiledetails.MobilesListActivity
 import com.mobirecord.ui.mobiledetails.model.Asset
@@ -36,6 +37,14 @@ class MobilesListAdapter(
 
         holder.binding.viewModel=item
         CLog.e("TAG", "setObservers:  Adapter Item -> $item")
+        // Load first image using your custom Glide method
+        val firstImageUrl = item.imageUrls?.firstOrNull()
+        if (!firstImageUrl.isNullOrEmpty()) {
+            AppMethods.glideCoverImage(holder.itemView.context, firstImageUrl, holder.binding.albumImageSIV)
+        } else {
+            // If no image found, optionally set a default image
+            holder.binding.albumImageSIV.setImageResource(R.drawable.mobile)
+        }
         holder.binding.dotsSiv.setOnClickListener {
             AppMethods.bottomSheetDialog(
                 activity!!,

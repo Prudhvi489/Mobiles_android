@@ -93,11 +93,11 @@ class MobilesListActivity : BaseVMBindingActivity<ActivityMobilesListBinding, Ad
             //            getProfilesApi(viewModel.searchText.value ?: "", AppStrings.Constants.outerSearch)
             val searchQuery = viewModel.searchString.value
 
-            if (searchQuery.isNullOrEmpty()) {
+            if (searchQuery==null) {
                 // Show a toast if the search string is null or empty
                 AppMethods.showToast(
                     this,
-                    "Please enter a search query",
+                    getString(R.string.please_enter_a_search_query),
                     AppStrings.SnackbarStatus.error
                 )
             } else {
@@ -111,7 +111,7 @@ class MobilesListActivity : BaseVMBindingActivity<ActivityMobilesListBinding, Ad
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 // User clicked on the search action
                  Log.e("TAG", "initUi: setOnEditorActionListener @@@@@@@@@@@@@@@@@@")
-                if (viewModel.searchString.value!!.isNotEmpty() && viewModel.searchString.value != null) {
+                if (viewModel.searchString.value != null) {
                     viewModel.page.value=1
                     viewModel.getAssets()
                 } else {
@@ -152,12 +152,13 @@ class MobilesListActivity : BaseVMBindingActivity<ActivityMobilesListBinding, Ad
                 pastVisibleItems = layoutManager.childCount
                 visibleItemCount = layoutManager.itemCount
                 totalItemCount = layoutManager.findLastVisibleItemPosition()
-                if (loading && !apiLoading ) {
+//                if (loading && !apiLoading ) {
+                if (loading ) {
                     if (totalItemCount >= visibleItemCount - 4) {
                         loading = false
                         if (itemsCount > list.size) {
                            viewModel.page.value= viewModel.page.value?.plus(1)
-                            apiLoading = true
+//                            apiLoading = true
                             CLog.e(TAG, "onScrolled: #$$$$$$$$$$$$$$$$$$", )
                             viewModel.getAssets()
                         }
@@ -175,7 +176,7 @@ class MobilesListActivity : BaseVMBindingActivity<ActivityMobilesListBinding, Ad
     override fun getPersistentView(): ActivityMobilesListBinding {
          return ActivityMobilesListBinding.inflate(layoutInflater)
     }
-
+`
     override fun editTvClick(dialog: Dialog?, model: Asset) {
         CLog.e(TAG, "editTvClick: edited", )
         val intent = Intent (this,AddMobileDetailsActivity::class.java)
@@ -186,11 +187,22 @@ class MobilesListActivity : BaseVMBindingActivity<ActivityMobilesListBinding, Ad
      }
 
     override fun deleteTvClick(dialog: Dialog?, model: Asset) {
-        CLog.e(TAG, "deleteTvClick: delete imei ${model.imei}", )
-        var jsonObject=JSONObject()
-        jsonObject.put(AppStrings.InputData.imei,model.imei)
-        model.imei?.let { viewModel.deleteAsset(it,jsonObject) }
-        dialog?.dismiss()
+
+
+        AppMethods.showConfirmationDialog(
+            context = this,
+            message = getString(R.string.are_you_sure_you_want_to_delete),
+            onPositiveClick = {
+                CLog.e(TAG, "deleteTvClick: delete imei ${model.imei}", )
+                var jsonObject=JSONObject()
+                jsonObject.put(AppStrings.InputData.imei,model.imei)
+                model.imei?.let { viewModel.deleteAsset(it,jsonObject) }
+                dialog?.dismiss()
+            }, onNegativeClick = {
+                dialog?.dismiss()
+            }
+        )
+
      }
     fun redirectToMobileDetailsActivity(imei: String?) {
         val intent = Intent (this,MobileDetailsActivity::class.java)

@@ -78,7 +78,7 @@ Please enable!</br></br>
     <string name="seller_price">Seller Price</string>
     <string name="profit">Profit</string>
     <string name="status">status</string>
-    <string name="seller_aadhar">Seller Aadhar</string>
+    <string name="seller_aadhar">Seller ID Proof</string>
     <string name="buyer_name">Buyer Name</string>
     <string name="buyer_phone_number">Buyer Phone Number</string>
     <string name="search">Search</string>
@@ -88,6 +88,7 @@ Please enable!</br></br>
     <string name="pending">pending</string>
     <string name="update">Update</string>
     <string name="edit_mobile">Edit Mobile</string>
+    <string name="please_enter_a_search_query">Please enter a search query</string>
 
 
 </resources>

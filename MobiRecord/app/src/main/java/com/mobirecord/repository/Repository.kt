@@ -83,7 +83,7 @@ class Repository @Inject constructor(val api: RestApi) {
      ): Resource<ApiResult<Asset?>?> {
         Log.e(
             TAG,
-            "deleteAsset() called with: imei = $imei, headerMap = $headerMap"
+            "getAssetById() called with: imei = $imei, headerMap = $headerMap"
         )
              return safeApiCall {
                  val url = "http://3.110.196.14/api/asset/:${imei}"

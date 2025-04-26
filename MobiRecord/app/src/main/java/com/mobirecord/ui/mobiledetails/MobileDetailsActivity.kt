@@ -3,6 +3,7 @@ package com.mobirecord.ui.mobiledetails
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -26,11 +27,7 @@ class MobileDetailsActivity :
     var viewPagerAdapter: ImagePagerAdapter? = null
     private val handler = Handler(Looper.getMainLooper())
 
-    val imageList = listOf(
-        "https://picsum.photos/",
-        "https://picsum.photos/",
-        "https://picsum.photos/"
-    )
+    val imageList :ArrayList<String>?= arrayListOf()
     var imei: String? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,18 +54,34 @@ class MobileDetailsActivity :
                     viewModel.sellerName.value = it.seller_name
                     viewModel.sellerPhoneNumber.value = it.seller_phone
                     viewModel.sellerAadhar.value = it.seller_aadhar
-                    viewModel.sellerDate.value =AppMethods.convertStrDateToStrDate(
-                        it.seller_date,
-                        AppStrings.DateFormat.yyyy_mm_dd_t_hh_mm_ss_sss_z,
-                        AppStrings.DateFormat.yyyy_mm_dd
-                    )
+                    viewModel.sellerDate.value = if (!it.seller_date.isNullOrEmpty()) {
+                        AppMethods.convertStrDateToStrDate(
+                            it.seller_date,
+                            AppStrings.DateFormat.yyyy_mm_dd_t_hh_mm_ss_sss_z,
+                            AppStrings.DateFormat.yyyy_mm_dd
+                        )
+                    } else {
+                        ""
+                    }
+
+                    viewModel.buyingDate.value = if (!it.buying_date.isNullOrEmpty()) {
+                        AppMethods.convertStrDateToStrDate(
+                            it.buying_date,
+                            AppStrings.DateFormat.yyyy_mm_dd_t_hh_mm_ss_sss_z,
+                            AppStrings.DateFormat.yyyy_mm_dd
+                        )
+                    } else {
+                        ""
+                    }
+
                     viewModel.buyerName.value = it.buyer_name
                     viewModel.buyerPhoneNumber.value = it.buyer_phone
-                    viewModel.buyingDate.value = AppMethods.convertStrDateToStrDate(
-                        it.buying_date,
-                        AppStrings.DateFormat.yyyy_mm_dd_t_hh_mm_ss_sss_z,
-                        AppStrings.DateFormat.yyyy_mm_dd
-                    )
+                    it.imageUrls?.forEach {
+                        imageList?.add(it)
+                    }
+                    Log.e(TAG, "setObservers: images size--->${imageList!!.size}", )
+                    viewPagerAdapter?.notifyDataSetChanged()
+
                 }
             }
         }
@@ -98,14 +111,17 @@ class MobileDetailsActivity :
 
     private val autoScrollRunnable = object : Runnable {
         override fun run() {
-            val nextItem = (binding.viewPager.currentItem + 1) % imageList.size
-            binding.viewPager.setCurrentItem(nextItem, true)
-            handler.postDelayed(this, 3000) // 3-second interval
+            if (!imageList.isNullOrEmpty()) {
+                val nextItem = (binding.viewPager.currentItem + 1) % imageList!!.size
+                binding.viewPager.setCurrentItem(nextItem, true)
+                handler.postDelayed(this, 3000)
+            }
         }
     }
 
+
     private fun initializeViewPager() {
-        viewPagerAdapter = ImagePagerAdapter(this, imageList)
+        viewPagerAdapter = ImagePagerAdapter(this, imageList!!)
         binding.viewPager.adapter = viewPagerAdapter
         // Set up indicator
         binding.indicator.attachTo(binding.viewPager)

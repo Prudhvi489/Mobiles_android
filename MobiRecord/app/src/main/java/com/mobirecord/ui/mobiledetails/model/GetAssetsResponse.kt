@@ -21,5 +21,8 @@ data class Asset(
     val seller_price: Int?=0,
     val status: String?="",
     val updated_at: String?="",
+    val image_keys:ArrayList<MobileModel>?= arrayListOf(),
+    val imageUrls:ArrayList<String>?= arrayListOf(),
     val userId: Int?=0
 )
+data class MobileModel(val key:String?="",val url:String?="")

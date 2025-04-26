@@ -146,7 +146,7 @@ class AppStrings {
             var password = "password"
             var page = "page"
             var pageSize = "pageSize"
-            var Search = "Search"
+            var Search = "search"
             var fileNames = "fileNames"
             var imageKeys = "imageKeys"
             var deletedKeys = "deletedKeys"

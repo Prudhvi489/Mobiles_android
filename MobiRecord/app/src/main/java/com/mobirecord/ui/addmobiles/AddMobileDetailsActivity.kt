@@ -65,9 +65,7 @@ class AddMobileDetailsActivity :
 
     override fun onResume() {
         super.onResume()
-        if (!imei.isNullOrEmpty()) {
-            viewModel.getAssetById(imei!!)
-        }
+
     }
 
     private fun setObservers() {
@@ -116,19 +114,53 @@ class AddMobileDetailsActivity :
                     viewModel.sellerName.value = it.seller_name
                     viewModel.sellerPhoneNumber.value = it.seller_phone
                     viewModel.sellerAadhar.value = it.seller_aadhar
-                    viewModel.sellerDate.value = AppMethods.convertStrDateToStrDate(
-                        it.seller_date,
-                        AppStrings.DateFormat.yyyy_mm_dd_t_hh_mm_ss_sss_z,
-                        AppStrings.DateFormat.yyyy_mm_dd
-                    )
+
                     viewModel.buyerName.value = it.buyer_name
                     viewModel.buyerPhoneNumber.value = it.buyer_phone
-                    viewModel.buyingDate.value = AppMethods.convertStrDateToStrDate(
-                        it.buying_date,
-                        AppStrings.DateFormat.yyyy_mm_dd_t_hh_mm_ss_sss_z,
-                        AppStrings.DateFormat.yyyy_mm_dd
-                    )
-                }
+
+                    viewModel.sellerDate.value = if (!it.seller_date.isNullOrEmpty()) {
+                        AppMethods.convertStrDateToStrDate(
+                            it.seller_date,
+                            AppStrings.DateFormat.yyyy_mm_dd_t_hh_mm_ss_sss_z,
+                            AppStrings.DateFormat.yyyy_mm_dd
+                        )
+                    } else {
+                        ""
+                    }
+
+                    viewModel.buyingDate.value = if (!it.buying_date.isNullOrEmpty()) {
+                        AppMethods.convertStrDateToStrDate(
+                            it.buying_date,
+                            AppStrings.DateFormat.yyyy_mm_dd_t_hh_mm_ss_sss_z,
+                            AppStrings.DateFormat.yyyy_mm_dd
+                        )
+                    } else {
+                        ""
+                    }
+                    it.image_keys?.forEach {
+                        viewModel.multiImagesList.add(it.url?.let { it1 ->
+                            it.key?.let { it2 ->
+                                MultiMediaModel(
+                                    path = it1,
+                                    mediaType = AppStrings.Constants.mediaTypeImage,
+                                    fileName = it2
+                                )
+                            }
+                        })
+                        selectedPhotosCount++
+                    }
+                    multiMediaAdapter?.notifyDataSetChanged()
+                    Log.e(TAG, "image list size respnse---->:${viewModel.multiImagesList.size} ", )
+
+                    if(viewModel.multiImagesList.size==0){
+                        binding.uploadImageIcon.visibleView()
+                        binding.multiMediaRv.goneView()
+                    }else{
+                        binding.uploadImageIcon.goneView()
+                        binding.multiMediaRv.visibleView()
+                    }
+
+                 }
             }
         }
         viewModel.getUploadUrlsResponse.observe(this) {
@@ -145,7 +177,8 @@ class AddMobileDetailsActivity :
                         val filename = it.fileName
                         val name = filesMap?.get(filename)?.key //to send for backend
                         val mediaUrl = filesMap?.get(filename)?.uploadUrl
-                        Log.e("TAG", "setObservers:mediaUrl ${mediaUrl}")
+                        Log.e(TAG, "setObservers:filename-----> ${filename}", )
+                        Log.e("TAG", "setObservers:mediaUrl------> ${mediaUrl}")
                         if (mediaUrl != null) {
                             val (call, fileUpload) = AppMethods.uploadFileApi(
                                 url = mediaUrl,
@@ -311,6 +344,9 @@ class AddMobileDetailsActivity :
     }
 
     private fun initUI() {
+        if (!imei.isNullOrEmpty()) {
+            viewModel.getAssetById(imei!!)
+        }
         if (fromActivity == AppStrings.ActivityFrom.addDetailsActivity) {
             binding.uploadTv.text = getString(R.string.update)
             binding.commonHeader.titleTV.text = getString(R.string.edit_mobile)
@@ -378,13 +414,14 @@ class AddMobileDetailsActivity :
 
                 }
                 selectedPhotosCount--
+                Log.e(TAG, "initImagesAdapter: image list size -------->${viewModel.multiImagesList.size}", )
                 if(fromActivity==AppStrings.ActivityFrom.addDetailsActivity){
-                    if (model.id.isNotEmpty()) {
-                        viewModel.deletedMediaIds.add(model.id)
+                    if (model.fileName.isNotEmpty()) {
+                        viewModel.deletedMediaIds.add(model.fileName)
                     }
                 }
-
                 multiMediaAdapter!!.notifyDataSetChanged()
+                
             } else if (from == 2) { //for add
                 binding.uploadImageIcon.performClick()
             }
@@ -436,17 +473,24 @@ class AddMobileDetailsActivity :
                         var list =
                             data.getStringArrayListExtra(AppStrings.IntentData.imageFileList) as ArrayList<String>
                         CLog.e("TAG", "list size:@@@@${list.size} ")
+                        Log.e(TAG, "list size: ${list.size}", )
+
+                         // Clear previous images if needed
+                        if (selectedPhotosCount == 0) {
+                            viewModel.multiImagesList.clear()
+                            viewModel.awsList.clear()
+                            viewModel.imageFileNameList.clear()
+                        }
 
                         list.forEachIndexed { index, filePath ->
                             val file = File(Uri.parse(filePath).path ?: "")
                             if (file.exists() && file.canRead()) {
                                 CLog.e("FileCheck", "File Exists: ${file.absolutePath}")
+                                Log.e(TAG, "image list size result launcher---->:${viewModel.multiImagesList.size} ", )
                                 viewModel.multiImagesList.add(
                                     MultiMediaModel(
                                         path = file.absolutePath,
-                                        mediaType = AppStrings.Constants.mediaTypeImage,
-                                        fileName = file.name
-                                    )
+                                        mediaType = AppStrings.Constants.mediaTypeImage)
                                 )
                                 viewModel.awsList.add(file.name)
                                 //list for comparning data in the response
@@ -515,12 +559,11 @@ class AddMobileDetailsActivity :
                         MultiMediaModel(
                             path = data.getStringExtra(AppStrings.IntentData.imageFile).toString(),
                             mediaType = AppStrings.Constants.mediaTypeImage,
-                            fileName = File(data.getStringExtra(AppStrings.IntentData.imageFile)).name
-                        )
+                            )
                     )
 
                     viewModel.awsList.add(
-                        data.getStringExtra(AppStrings.IntentData.imageFile).toString()
+                        File(data.getStringExtra(AppStrings.IntentData.imageFile)).name
                     )
                     viewModel.imageFileNameList.add(
                         MultiMediaModel(
