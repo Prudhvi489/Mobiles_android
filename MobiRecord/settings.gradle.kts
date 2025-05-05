@@ -29,6 +29,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "MobiRecord"
+rootProject.name = "Mobivault"
 include(":app")
  

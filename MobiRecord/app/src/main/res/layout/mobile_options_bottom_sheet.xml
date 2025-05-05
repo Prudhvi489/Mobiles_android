@@ -27,7 +27,7 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.textview.MaterialTextView
-                       android:text="@string/edit"
+                        android:text="@string/edit"
                      android:id="@+id/editTv"
                     style="@style/violet_color_title_txt_style_without_bold"
                     android:padding="@dimen/dimen_10"/>
@@ -38,6 +38,7 @@
 
                 <com.google.android.material.textview.MaterialTextView
                      android:text="@string/delete"
+                    android:textColor="@color/red_color"
                      android:id="@+id/deleteTv"
                     style="@style/violet_color_title_txt_style_without_bold" />
                 <View

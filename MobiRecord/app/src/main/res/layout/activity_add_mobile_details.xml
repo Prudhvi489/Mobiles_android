@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.mobirecord.ui.viewmodel.AddDetailsViewmodel" />
+            type="com.mobivault.ui.viewmodel.AddDetailsViewmodel" />
 
     </data>
 
@@ -16,7 +16,6 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         tools:context=".ui.addmobiles.AddMobileDetailsActivity">
-
 
             <include
                 android:id="@+id/commonHeader"
@@ -34,15 +33,7 @@
                     android:orientation="vertical">
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/text_header_style_16"
-                        android:text="@string/mobile_model"/>
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:inputType="textNoSuggestions|textCapWords"
-                        style="@style/text_edittext_style_16"
-                        android:text="@={viewModel.mobileModel}"
-                        android:id="@+id/mobileModelEt"/>
-                    <com.google.android.material.textview.MaterialTextView
-                        style="@style/text_header_style_16"
-                        android:text="@string/imei"/>
+                        android:text="@string/imei_ast"/>
                     <com.google.android.material.textfield.TextInputEditText
                         android:inputType="number"
                         style="@style/text_edittext_style_16"
@@ -51,39 +42,25 @@
                         android:id="@+id/imeiEt"/>
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/text_header_style_16"
-                        android:text="@string/buyer_price"/>
+                        android:text="@string/mobile_model_ast"/>
                     <com.google.android.material.textfield.TextInputEditText
-                        android:inputType="number"
+                        android:inputType="textNoSuggestions|textCapWords"
                         style="@style/text_edittext_style_16"
-                        app:setIntText="@={viewModel.buyerPrice}"
-                        android:id="@+id/buyerPriceEt"/>
-                    <com.google.android.material.textview.MaterialTextView
-                        style="@style/text_header_style_16"
-                        android:text="@string/seller_price"/>
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:inputType="number"
-                        style="@style/text_edittext_style_16"
-                        app:setIntText="@={viewModel.sellerPrice}"
-                        android:id="@+id/sellerPriceEt"/>
-                    <com.google.android.material.textview.MaterialTextView
-                        style="@style/text_header_style_16"
-                        android:text="@string/profit"/>
-                    <com.google.android.material.textview.MaterialTextView
+                        android:text="@={viewModel.mobileModel}"
+                        android:id="@+id/mobileModelEt"/>
 
-                         style="@style/text_edittext_style_16"
-                        android:gravity="center_vertical"
-                        android:text='@{String.valueOf(viewModel.profit)}'
-                           android:id="@+id/profitEt"/>
+
+
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/text_header_style_16"
-                        android:text="@string/status"/>
+                        android:text="@string/status_ast"/>
                     <com.google.android.material.textview.MaterialTextView
                            style="@style/text_dropdown_style_16"
                         android:text="@={viewModel.status}"
                         android:id="@+id/statusEt"/>
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/text_header_style_16"
-                        android:text="@string/seller_name"/>
+                        android:text="@string/seller_name_ast"/>
                     <com.google.android.material.textfield.TextInputEditText
                         android:inputType="textNoSuggestions|textCapWords"
                           style="@style/text_edittext_style_16"
@@ -91,7 +68,7 @@
                         android:id="@+id/sellerNameEt"/>
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/text_header_style_16"
-                        android:text="@string/seller_phone_number"/>
+                        android:text="@string/seller_phone_number_ast"/>
                     <com.google.android.material.textfield.TextInputEditText
                         style="@style/text_edittext_style_16"
                         android:inputType="number"
@@ -108,12 +85,21 @@
                         android:id="@+id/sellerAadharEt"/>
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/text_header_style_16"
-                        android:text="@string/seller_date"/>
+                        android:text="@string/seller_date_ast"/>
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/calendar_style_text_view"
                         android:inputType="date"
                         android:text="@{viewModel.sellerDate}"
                         android:id="@+id/sellerDate"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/text_header_style_16"
+                        android:text="@string/seller_price_ast"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:inputType="number"
+                        style="@style/text_edittext_style_16"
+                        app:setIntText="@={viewModel.sellerPrice}"
+                        android:id="@+id/sellerPriceEt"/>
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/text_header_style_16"
                         android:text="@string/buyer_name"/>
@@ -152,7 +138,24 @@
                         android:id="@+id/buyingDate"/>
                     <com.google.android.material.textview.MaterialTextView
                         style="@style/text_header_style_16"
-                        android:text="@string/mobile_images"/>
+                        android:text="@string/buyer_price"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:inputType="number"
+                        style="@style/text_edittext_style_16"
+                        app:setIntText="@={viewModel.buyerPrice}"
+                        android:id="@+id/buyerPriceEt"/>
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/text_header_style_16"
+                        android:text="@string/profit"/>
+                    <com.google.android.material.textview.MaterialTextView
+
+                        style="@style/text_edittext_style_16"
+                        android:gravity="center_vertical"
+                        android:text='@{String.valueOf(viewModel.profit)}'
+                        android:id="@+id/profitEt"/>
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/text_header_style_16"
+                        android:text="@string/mobile_images_ast"/>
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">

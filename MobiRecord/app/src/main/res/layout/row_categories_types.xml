@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="com.mobirecord.ui.addmobiles.model.ListDataModel" />
+            type="com.mobivault.ui.addmobiles.model.ListDataModel" />
 
         <import type="android.view.View" />
     </data>

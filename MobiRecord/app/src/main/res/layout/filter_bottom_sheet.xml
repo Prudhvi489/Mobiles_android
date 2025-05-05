@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+<variable
+    name="viewmodel"
+    type="com.mobivault.ui.viewmodel.AddDetailsViewmodel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/CustomCardViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/white"
+            app:strokeWidth="@dimen/dimen_0">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/dimen_15"
+                android:paddingStart="@dimen/dimen_15"
+                 android:paddingEnd="@dimen/dimen_15"
+                android:paddingBottom="@dimen/dimen_15">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/cancelBtn"
+                    android:layout_width="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/cancel_icon"
+                    android:textSize="@dimen/font_14"
+                    android:layout_gravity="end"
+                    />
+ 
+ 
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/filterByTv"
+                    style="@style/text_header_style_16_bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_15"
+                    android:text="@string/filter_by" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/projectTypeTv"
+                    android:layout_marginBottom="@dimen/dimen_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/status"
+                    android:visibility="visible"
+                    style="@style/text_header_style_16_bold"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/statusET"
+                    style="@style/text_dropdown_style_16"
+                    android:text="@{viewmodel.filterStatusTemp}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_20"
+                    android:hint="@string/status" />
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+
+                    android:weightSum="2">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/clearFilterTv"
+                        android:layout_height="@dimen/dimen_45"
+                         android:layout_width="@dimen/dimen_0"
+                         android:layout_marginEnd="@dimen/dimen_5"
+                        android:layout_weight="1"
+                        app:cornerRadius="@dimen/dimen_20"
+                        android:background="@color/gray_color"
+                        android:text="@string/clear"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/font_16" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/applyBtn"
+                         android:layout_width="@dimen/dimen_0"
+                        android:layout_height="@dimen/dimen_45"
+                         android:layout_marginStart="@dimen/dimen_5"
+                        android:layout_weight="1"
+                        android:text="@string/apply"
+                        app:cornerRadius="@dimen/dimen_20"
+                         android:background="@drawable/violet_button_bg"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/font_16" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

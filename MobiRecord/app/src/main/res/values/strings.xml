@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MobiRecord</string>
+    <string name="app_name">Mobivault</string>
     <string name="the_camera_and_microphone_permissions_is_required_to_take_photo">The Camera and Microphone permissions is required to take photo.</string>
     <string name="camera">Camera</string>
     <string name="gallery">Gallery</string>
@@ -12,14 +12,17 @@
     <string name="session_expired_msg">Sorry! Someone has logged in with your account. Please check and come back</string>
     <string name="add_mobiles">Add Mobile</string>
     <string name="seller_name">Seller Name</string>
+    <string name="seller_name_ast">Seller Name <font color="#FF0000">*</font></string>
     <string name="enter_here">Enter here</string>
     <string name="select">Select</string>
     <string name="seller_phone_number">Seller Phone Number</string>
+    <string name="seller_phone_number_ast">Seller Phone Number <font color="#FF0000">*</font></string>
     <string name="mobile_name">Mobile Name</string>
     <string name="seller_date">Seller Date</string>
+    <string name="seller_date_ast">Seller Date <font color="#FF0000">*</font></string>
     <string name="customer_address">Customer Address</string>
     <string name="buying_date">Buying Date</string>
-    <string name="mobile_images">Mobile Images</string>
+    <string name="mobile_images_ast">Mobile Images <font color="#FF0000">*</font></string>
     <string name="please_give_storage_permission">Please give storage permission</string>
     <string name="ok">OK</string>
     <string name="limited_access_message"><![CDATA[
@@ -35,6 +38,7 @@ Please enable!</br></br>
     <string name="done">Done</string>
     <string name="pick_image_intent_chooser_title">Select source</string>
     <string name="are_you_sure_you_want_to_delete">Are you sure you want to delete?</string>
+    <string name="are_you_sure_you_want_to_logout">Are you sure you want to Logout?</string>
     <string name="please_select_atleast_one_image">Please select atleast one image.</string>
     <string name="next">Next</string>
     <string name="your_selection_limit_exceed">Your selection limit has exceeded.</string>
@@ -55,14 +59,14 @@ Please enable!</br></br>
     <string name="valid_confirm_password">Please provide the valid confirm password</string>
     <string name="passwords_not_matched">Passwords do not match</string>
     <string name="valid_otp">Please enter 4 digits to verify the OTP</string>
-    <string name="mobile_record">Mobile Record</string>
+    <string name="mobile_record">Mobivault</string>
     <string name="mobile_details">Mobile Details</string>
     <string name="add">Add</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
     <string name="no_mobiles_found">No Mobiles Found</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
+    <string name="email">Email <font color="#FF0000">*</font></string>
+    <string name="password">Password <font color="#FF0000">*</font></string>
     <string name="forgot_password">Forgot Password</string>
     <string name="login">Login</string>
     <string name="verify_otp">Verify Otp</string>
@@ -73,22 +77,30 @@ Please enable!</br></br>
     <string name="confirm_password">Confirm Password</string>
     <string name="are_you_sure_you_want_to_proceed">Are you sure you want to proceed?</string>
     <string name="mobile_model">Mobile Model</string>
-    <string name="imei">imei</string>
+    <string name="mobile_model_ast">Mobile Model <font color="#FF0000">*</font></string>
+    <string name="imei">Imei</string>
+    <string name="imei_ast">Imei <font color="#FF0000">*</font></string>
     <string name="buyer_price">Buyer Price</string>
+    <string name="buyer_price_ast">Buyer Price <font color="#FF0000">*</font></string>
     <string name="seller_price">Seller Price</string>
+    <string name="seller_price_ast">Seller Price <font color="#FF0000">*</font></string>
     <string name="profit">Profit</string>
-    <string name="status">status</string>
+    <string name="status">Status</string>
+    <string name="status_ast">Status <font color="#FF0000">*</font></string>
     <string name="seller_aadhar">Seller ID Proof</string>
     <string name="buyer_name">Buyer Name</string>
     <string name="buyer_phone_number">Buyer Phone Number</string>
     <string name="search">Search</string>
     <string name="no_result_found">No Result Found</string>
     <string name="available">available</string>
+    <string name="all">all</string>
     <string name="sold">sold</string>
     <string name="pending">pending</string>
     <string name="update">Update</string>
     <string name="edit_mobile">Edit Mobile</string>
     <string name="please_enter_a_search_query">Please enter a search query</string>
-
-
+    <string name="logout">Logout</string>
+    <string name="filter_by">Filter By</string>
+    <string name="clear">Clear</string>
+    <string name="apply">Apply</string>
 </resources>

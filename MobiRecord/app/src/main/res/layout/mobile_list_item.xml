@@ -6,7 +6,7 @@
     <data>
 <variable
     name="viewModel"
-    type="com.mobirecord.ui.mobiledetails.model.Asset" />
+    type="com.mobivault.ui.mobiledetails.model.Asset" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -98,7 +98,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="bhanu"
-                        android:text="@{viewModel.imei}" />
+                        android:text="@{viewModel.mobile_model}" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/dotsSiv"

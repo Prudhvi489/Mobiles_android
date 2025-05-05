@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.mobirecord.ui.addmobiles.model.MultiMediaModel" />
+            type="com.mobivault.ui.addmobiles.model.MultiMediaModel" />
 
     </data>
 
@@ -63,7 +63,7 @@
             android:id="@+id/cancelIv"
             android:layout_marginLeft="@dimen/dimen_2"
             android:layout_marginTop="@dimen/dimen_2"
-            app:layout_constraintStart_toStartOf="@+id/imageCv"
+            app:layout_constraintEnd_toEndOf="@+id/imageCv"
             android:src="@drawable/cancel_icon"
             android:layout_marginStart="-7dp"
             app:layout_constraintTop_toTopOf="parent" />

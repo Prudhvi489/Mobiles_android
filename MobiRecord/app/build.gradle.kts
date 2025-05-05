@@ -6,11 +6,11 @@ plugins {
  }
 
 android {
-    namespace = "com.mobirecord"
+    namespace = "com.mobivault"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.mobirecord"
+        applicationId = "com.mobivault"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -33,7 +33,7 @@ android {
             buildConfigField(
                 "String",
                 "SERVER_URL",
-                value = "\"http://3.110.196.14/api/\""
+                value = "\"http://35.154.175.30/api/\""
             );
         }
         debug {
@@ -42,7 +42,7 @@ android {
             buildConfigField(
                 "String",
                 "SERVER_URL",
-                value = "\"http://3.110.196.14/api/\""
+                value = "\"http://35.154.175.30/api/\""
             );
 
         }

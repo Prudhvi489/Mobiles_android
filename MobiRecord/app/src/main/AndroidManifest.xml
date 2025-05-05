@@ -18,7 +18,7 @@
     </queries>
 
     <application
-        android:name=".app.MobiRecord"
+        android:name=".app.Mobivault"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:extractNativeLibs="true"
@@ -38,6 +38,8 @@
         <activity
             android:name=".ui.mobiledetails.MobileDetailsActivity"
             android:exported="false" />
+        <activity android:name=".utils.PicSelectActivity"
+            android:exported="false"/>
         <activity
             android:name=".ui.SplashActivity"
             android:exported="true">
